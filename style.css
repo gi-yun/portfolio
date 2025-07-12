@@ -224,27 +224,27 @@ h2 {
 }
 
 .card-front.movie {
-    background-image: url('/image/movie.png');
+    background-image: url('image/movie.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .card-front.tour {
-    background-image: url('/image/tour.png');
+    background-image: url('image/tour.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .card-front.popcon {
-    background-image: url('/image/pop-con.png');
+    background-image: url('image/pop-con.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 .card-front.TelegramChatbot {
-    background-image: url('/image/Telegram.png');
+    background-image: url('image/Telegram.png');
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center;
