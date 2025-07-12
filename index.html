@@ -4,543 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김기윤 포트폴리오</title>
-    <style>
-      .anchor-offset {
-        display: block;
-        height: 80px; /* nav 높이만큼 확보 */
-        margin-top: -80px; /* 실제 위치는 위로 당김 */
-        visibility: hidden; /* 화면에는 안 보이게 처리 */
-      }
-
-      body {
-        margin: 0;
-        font-family: "Arial", sans-serif;
-        background: #fff;
-        color: #222;
-        line-height: 1.6;
-      }
-      .hero-header {
-        position: relative;
-        background-image: url("./ref/header_image.png"); /* 이미지 경로 교체 */
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        z-index: 0;
-      }
-
-      .hero-header::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.5); /* 어두운 필터 효과 */
-        z-index: 1;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-header h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-      }
-
-      .hero-header p {
-        font-size: 1.2rem;
-        margin: 0.5rem 0;
-      }
-
-      .hero-header a {
-        color: #6ec1ff;
-        font-weight: bold;
-        text-decoration: none;
-      }
-      .scroll-button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background-color: rgba(14, 13, 13, 0.856);
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: background 0.3s ease;
-    }
-
-    .scroll-button:hover {
-      background-color: #0509face;
-    }
-
-
-      .hero-header a:hover {
-        text-decoration: underline;
-      }
-
-      section {
-        padding: 2rem;
-        max-width: 1000px;
-        margin: auto;
-      }
-      h2 {
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
-      }
-
-      /* ABOUT ME */
-      .about-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 1.5rem;
-        max-width: 1000px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-      .about-item {
-        width: 200px;
-        text-align: center;
-        background: #f5f5f5;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-      .about-item span {
-        display: block;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 0.3rem;
-      }
-      .about-item p {
-        margin: 0.3rem 0;
-        font-size: 0.95rem;
-        color: #555;
-      }
-
-      /* Skills */
-      .skills span {
-        display: inline-block;
-        background: #e1e1e1;
-        padding: 0.4rem 0.8rem;
-        margin: 0.2rem;
-        border-radius: 5px;
-      }
-
-      /* Project */
-      .project {
-        background: #f9f9f9;
-        padding: 1rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-      }
-
-      /* License & Career */
-      .license-container,
-      .career-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-        margin-top: 1.5rem;
-      }
-      .license-card,
-      .career-card {
-        width: 260px;
-        padding: 1rem;
-        border-radius: 10px;
-        background: #f2f2f2;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
-      .license-card strong,
-      .career-card strong {
-        display: block;
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        color: #333;
-      }
-      .license-card small,
-      .career-card small {
-        color: #666;
-      }
-      .skill-category {
-        margin-bottom: 3rem;
-      }
-      .skill-category h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-      }
-      .skill-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      .skill-item {
-        width: 100px;
-        text-align: center;
-        background: white;
-        border-radius: 10px;
-        padding: 1rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
-      .skill-item img {
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
-      }
-      .skill-item span {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.85rem;
-        color: #333;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      nav {
-        background-color: #2c3e50;
-        padding: 1rem 0;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-      }
-
-      .nav-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .nav-left .logo {
-        font-weight: bold;
-        font-size: 1.2rem;
-        color: white;
-        text-decoration: none;
-      }
-
-      .nav-right a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        margin-left: 2rem;
-        transition: color 0.3s ease;
-      }
-
-      .hover a:hover {
-        color: #ffd369;
-      }
-      footer {
-        background-color: #222;
-        color: #ccc;
-        text-align: center;
-        padding: 1.5rem 0;
-        position: relative;
-        margin-top: 5rem;
-      }
-
-      footer p {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      #scrollToTop {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background-color: #ccc;
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        display: none;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        transition: background 0.3s;
-      }
-
-      #scrollToSkills:hover {
-        background-color: #aaa;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
-      <div class="nav-inner">
-        <div class="nav-left hover">
-          <a class="logo">KGY's Portfolio</a>
-        </div>
-        <div class="nav-right hover">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#licenses">Licenses</a>
-          <a href="#career">Career</a>
-        </div>
-      </div>
-    </nav>
+    <!-- ✅ 스크롤 버튼 -->
 
-    <header class="hero-header">
-      <div class="hero-content">
-        <h1>김기윤</h1>
-        <p>성장하는 개발자, 기술로 사람을 연결하는 것에 흥미를 느낍니다.</p>
-        <p>🔗 <a href="https://github.com/gi-yun" target="_blank">GitHub</a></p>
-       <!-- 🔻 여기에 버튼 추가 -->
-    <a href="#about" class="scroll-button">더 알아보기 ↓</a>
-  </div>
-      </div>
-    </header>
-
-    <!-- ABOUT ME -->
-    <span id="about" class="anchor-offset"></span>
-    <section>
-      <h2 style="text-align: start">
-        🔗 <span style="font-weight: 900">ABOUT ME</span>
-      </h2>
-      <hr style="width: 100px; border: 1.5px solid #000; margin: 0 auto 2rem" />
-      <div class="about-container">
-        <div class="about-item">
-          <span>👤 이름</span>
-          <p>김기윤</p>
-        </div>
-        <div class="about-item">
-          <span>📆 생년월일</span>
-          <p>2000.04.03</p>
-        </div>
-        <div class="about-item">
-          <span>📍 위치</span>
-          <p>부산광역시 동래구</p>
-        </div>
-        <div class="about-item">
-          <span>📞 연락처</span>
-          <p>010-9274-7820</p>
-        </div>
-        <div class="about-item">
-          <span>✉️ 이메일</span>
-          <p>kbb9554@gmail.com</p>
-        </div>
-        <div class="about-item">
-          <span>🎓 학력</span>
-          <p>
-            경남정보대 전자과 <br />
-            공학사(2023.02)
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <span id="skills" class="anchor-offset"></span>
-    <section>
-      <h2>🛠️ 기술 스택</h2>
-
-      <!-- Language -->
-      <div class="skill-category">
-        <h3>Language</h3>
-        <div class="skill-grid">
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-              alt="Python"
-            />
-            <span>Python</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript"
-            />
-            <span>JavaScript</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-              alt="SQL"
-            />
-            <span>SQL</span>
-          </div>
-
-          <!-- ✅ Java 추가한 부분 -->
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-              alt="Java"
-            />
-            <span>Java</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Frontend -->
-      <div class="skill-category">
-        <h3>Frontend</h3>
-        <div class="skill-grid">
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-              alt="HTML5"
-            />
-            <span>HTML5</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-              alt="CSS3"
-            />
-            <span>CSS3</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-              alt="Bootstrap"
-            />
-            <span>Bootstrap</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript"
-            />
-            <span>DOM</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Backend -->
-      <div class="skill-category">
-        <h3>Backend / DB</h3>
-        <div class="skill-grid">
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
-              alt="Oracle"
-            />
-            <span>Oracle</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-              alt="MySQL"
-            />
-            <span>MySQL</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
-              alt="Spring Boot"
-            />
-            <span>Spring Boot</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- DevOps / Tools -->
-      <div class="skill-category">
-        <h3>DevOps / Tools</h3>
-        <div class="skill-grid">
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-              alt="Docker"
-            />
-            <span>Docker</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-              alt="Git"
-            />
-            <span>Git</span>
-          </div>
-          <div class="skill-item">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-              alt="VSCode"
-            />
-            <span>VS Code</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECT -->
-    <span id="projects" class="anchor-offset"></span>
-    <section>
-      <h2>📂 프로젝트</h2>
-      <div class="project">
-        <h3>Telegram 챗봇 (식단 알리미)</h3>
-        <p>
-          Python, Selenium, BeautifulSoup을 사용하여 부경대학교 한미락 식단을
-          자동 크롤링 후 텔레그램으로 전송하는 챗봇 개발.
-        </p>
-        <p>
-          🔗
-          <a href="https://github.com/gi-yun/Telegram_chatbot" target="_blank"
-            >GitHub 링크</a
-          >
-        </p>
-      </div>
-    </section>
-
-    <!-- LICENSE -->
-    <span id="licenses" class="anchor-offset"></span>
-    <section>
-      <h2>📄 자격증</h2>
-      <div class="license-container">
-        <div class="license-card">
-          <strong>2종보통운전면허</strong>
-          <p>경찰청<br /><small>2023.08</small></p>
-        </div>
-        <div class="license-card">
-          <strong>전기기능사</strong>
-          <p>한국산업인력공단<br /><small>2018.07</small></p>
-        </div>
-        <div class="license-card">
-          <strong>전자계산기기능사</strong>
-          <p>한국산업인력공단<br /><small>2017.12</small></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAREER -->
-    <span id="career" class="anchor-offset"></span>
-    <section>
-      <h2>📘 교육 이수</h2>
-      <div class="career-container">
-        <div class="career-card">
-          <strong>빅데이터를 활용한 자바 개발자</strong>
-          <p>부경대학교<br /><small>2025.02.03 ~ 2025.07.29</small></p>
-        </div>
-        <div class="career-card">
-          <strong>AI 플랫폼 활용 리테일 서비스 개발</strong>
-          <p>신세계아이앤씨<br /><small>2024.03.04 ~ 2024.08.30</small></p>
-        </div>
-        <div class="career-card">
-          <strong>Docker & AWS 기반 웹/앱 개발</strong>
-          <p>더조은직업전문학교<br /><small>2023.07.17 ~ 2023.12.28</small></p>
-        </div>
-      </div>
-    </section>
-    <!-- 푸터 -->
-    <footer>
-      <p>© Kim Gi Yun. All rights reserved.</p>
-      <button id="scrollToTop">⬆</button>
-    </footer>
+    <button id="scrollToTop" title="맨 위로 이동">⬆</button>
     <script>
       const scrollBtn = document.getElementById("scrollToTop");
-      const logo = document.querySelector(".logo");
 
       window.addEventListener("scroll", () => {
         scrollBtn.style.display =
@@ -550,10 +21,385 @@
       scrollBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
-
-      logo.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
     </script>
+    <!-- ✅ 네비게이션 -->
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-left">
+          <div
+            class="logo"
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          >
+            KGY's Portfolio
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#licenses">Licenses</a>
+          <a href="#education">Career</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ✅ 헤더 -->
+    <header>
+      <h1>김기윤</h1>
+      <p>성장하는 개발자, 기술로 사람을 연결합니다.</p>
+      <p>
+        <a href="https://github.com/gi-yun" style="color: #ffc107">GitHub</a>
+      </p>
+      <button
+        class="scroll-btn"
+        onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })"
+      >
+        더 알아보기 ↓
+      </button>
+    </header>
+
+    <!-- ✅ ABOUT ME 섹션 -->
+    <section id="about">
+      <h2>📎 ABOUT ME</h2>
+      <div class="about-card">
+        <div class="about-left">
+          <div class="about-row">
+            <span>🙍‍♂️ <strong>이름:</strong> 김기윤</span>
+            <span>🎂 <strong>생년월일:</strong> 2000.04.03</span>
+          </div>
+          <div class="about-row">
+            <span>📍 <strong>위치:</strong> 부산광역시 동래구</span>
+            <span>📞 <strong>연락처:</strong> 010-9274-7820</span>
+          </div>
+          <div class="about-row">
+            <span>📧 <strong>이메일:</strong> kbb9554@gmail.com</span>
+            <span>🎓 <strong>학력:</strong> 경남정보대 전자과 (2023.02)</span>
+          </div>
+        </div>
+        <div class="about-photo">
+          <img src="image/profile.jpg" alt="프로필 사진" />
+        </div>
+      </div>
+    </section>
+
+    <span id="skills" class="anchor-offset"></span>
+    <section>
+      <h2>🛠️ skills</h2>
+      <div class="skill-wrapper">
+        <!-- Language -->
+        <div class="skill-category">
+          <h3>Language</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="Python"
+              />
+              <span>Python</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                alt="Java"
+              />
+              <span>Java</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+              />
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="image/sql.svg" alt="SQL" />
+              <span>SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                alt="HTML5"
+              />
+              <span>HTML5</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                alt="CSS3"
+              />
+              <span>CSS3</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                alt="Bootstrap"
+              />
+              <span>Bootstrap</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="React"
+              />
+              <span>React</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend / DB -->
+        <div class="skill-category">
+          <h3>Backend / DB</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                alt="Spring Boot"
+              />
+              <span>Spring Boot</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"
+                alt="Oracle"
+              />
+              <span>Oracle</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                alt="MySQL"
+              />
+              <span>MySQL</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://camo.githubusercontent.com/eba362fd56340621dcc14caaf065dcb949a969ab8caf1af1d5f44e968b649d92/68747470733a2f2f696d672e69636f6e73382e636f6d2f3f73697a653d3130302669643d72487076657074537577447a26666f726d61743d706e6726636f6c6f723d303030303030"
+                alt="JWT"
+                title="JWT"
+                width="40"
+              />
+              <span>JWT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category">
+          <h3>DevOps / Tools</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                alt="Docker"
+              />
+              <span>Docker</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                alt="Git"
+              />
+              <span>Git</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+              />
+              <span>GitHub</span>
+            </div>
+            <div class="skill-item">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                alt="VS Code"
+              />
+              <span>VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 프로젝트 영역 (수정 포함) -->
+    <section id="projects">
+      <h2>📂 projects</h2>
+      <div class="project-container">
+        <!-- ✅ 텔레그램 챗봇 -->
+        <div class="project">
+          <div class="card">
+            <div class="card-front TelegramChatbot"></div>
+            <div class="card-back">
+              <h4>🤖 Gibot (기봇)</h4>
+              <div class="card-desc">
+                <p>Python 기반 텔레그램 챗봇</p>
+                <p>
+                  식단 정보, 영화·음악 순위, 운세,
+                  <strong> Gemini AI 대화 기능 제공</strong>
+                </p>
+                <p>
+                  <strong> 매일 정오 자동 식단 전송 + 캐시 최적화 적용</strong>
+                </p>
+              </div>
+              <p style="font-size: 0.8rem; color: #666">
+                사용 기술: Python, Selenium, BeautifulSoup
+              </p>
+              <a
+                href="https://github.com/gi-yun/Telegram_chatbot"
+                target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ 영화 예매 키오스크 -->
+        <div class="project">
+          <div class="card">
+            <div class="card-front movie"></div>
+            <div class="card-back">
+              <h4>영화 예매 키오스크</h4>
+              <p>
+                PyQt5 기반 GUI 프로그램으로 영화 예매, 좌석 선택, 결제, 관리자
+                통계까지 <br />포함된
+
+                <strong>오프라인 키오스크형 예매 시스템</strong>입니다.
+              </p>
+              <p style="font-size: 0.8rem; color: #666">
+                사용 기술: PyQt5, OracleDB, Oracle, matplotlib
+              </p>
+              <a
+                href="https://github.com/gi-yun/Movie_ticket_kiosk"
+                target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ 부산 여행 추천 사이트 -->
+        <div class="project">
+          <div class="card">
+            <div class="card-front tour"></div>
+            <div class="card-back">
+              <h4>부산 여행 추천 사이트</h4>
+              <p>
+                초보 여행자를 위한 지역 기반 부산 여행지 추천 플랫폼으로
+                <strong> SVG 지도</strong>, <strong>차트 데이터 분석</strong>,
+                게시판 및 관리자 기능까지 포함한 풀스택 프로젝트입니다.
+              </p>
+              <p style="font-size: 0.8rem; color: #666">
+                사용 기술: React, Java, Spring Boot, JWT
+              </p>
+              <a href="https://github.com/tour-site" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ POP:CON 쇼핑몰 -->
+        <div class="project">
+          <div class="card">
+            <div class="card-front popcon"></div>
+            <div class="card-back">
+              <h4>POP-CON 편의점 쇼핑몰</h4>
+              <p>React + Spring Boot 기반의 온라인 편의점 플랫폼.</p>
+              <p>
+                본 프로젝트는 React + Spring Boot 기반의 풀스택 프로젝트로
+                <strong>카카오맵 API</strong> 를 통한
+                <strong>위치 기반 매장 탐색</strong>,
+                <strong>PortOne 결제 API</strong>를 이용한
+                <strong>실시간 결제 기능</strong> , 장바구니, 찜목록, 관리자
+                페이지까지 구현되어 있습니다
+              </p>
+              <p style="font-size: 0.8rem; color: #666">
+                사용 기술: React, Spring Boot, MySQL, JWT, Kakao Map, PortOne
+              </p>
+              <a href="https://github.com/kdt-codearchitect" target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ IKEA 가구 쇼핑몰 -->
+        <div class="project">
+          <div class="card">
+            <div class="card-front ikea"></div>
+            <div class="card-back">
+              <h4>🪑 IKEA 가구 쇼핑몰</h4>
+              <div class="card-desc">
+                <p>Spring MVC + Security 기반 전자상거래 웹 프로젝트</p>
+                <p>실제 IKEA 제품 데이터를 활용한 상품 검색·주문 구현</p>
+                <p>회원가입, 로그인, 장바구니, 결제 등 기본 쇼핑몰 기능 탑재</p>
+              </div>
+              <p style="font-size: 0.8rem; color: #666">
+                사용 기술: Java 8, Spring MVC, Spring Security, MyBatis, JSP,
+                MySQL
+              </p>
+              <a
+                href="https://github.com/gi-yun/IKEA_furniture_shop"
+                target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 자격증 -->
+    <section id="Licenses">
+      <h2>📄 Licenses</h2>
+      <div class="card-list">
+        <div class="info-card">
+          <h4>2종보통운전면허</h4>
+          <p>경찰청</p>
+          <small>2023.08</small>
+        </div>
+        <div class="info-card">
+          <h4>전기기능사</h4>
+          <p>한국산업인력공단</p>
+          <small>2018.07</small>
+        </div>
+        <div class="info-card">
+          <h4>전자계산기기능사</h4>
+          <p>한국산업인력공단</p>
+          <small>2017.12</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 교육 이수 -->
+    <section id="education">
+      <h2>📘 education</h2>
+      <div class="card-list">
+        <div class="info-card">
+          <h4>빅데이터를 활용한 자바 개발자</h4>
+          <p>부경대학교</p>
+          <small>2025.02.03 ~ 2025.07.29</small>
+        </div>
+        <div class="info-card">
+          <h4>AI 플랫폼 활용 리테일 서비스 개발</h4>
+          <p>신세계아이앤씨</p>
+          <small>2024.03.04 ~ 2024.08.30</small>
+        </div>
+        <div class="info-card">
+          <h4>Docker & AWS 기반 웹/앱 개발</h4>
+          <p>더조은직업전문학교</p>
+          <small>2023.07.17 ~ 2023.12.28</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 푸터 -->
+    <footer>
+      <p>© 2025 김기윤. All rights reserved.</p>
+    </footer>
   </body>
 </html>

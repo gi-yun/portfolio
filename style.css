@@ -1,0 +1,436 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --main-color: #2c3e50;
+    --hover-color: #ffd369;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* 스크롤 바 */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background-color: #e0e0e0;
+    /* ✅ 연한 회색 배경 */
+    color: #2c3e50;
+    border: none;
+    border-radius: 12px;
+    /* ✅ 둥근 모서리 직사각형 */
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    /* 기본 숨김 */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#scrollToTop:hover {
+    transform: scale(1.1);
+    /* ✅ 마우스 올리면 살짝 커짐 */
+}
+
+
+body {
+    font-family: "Arial", sans-serif;
+    background: #fff;
+    color: #222;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: var(--main-color);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: var(--hover-color);
+}
+
+header {
+    background: url("image/header_image.png") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 0 2rem;
+    text-shadow: 1px 1px 3px #000;
+
+    /* ✅ 화면 전체 덮도록 추가 */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    /* 👉 이름 크게 */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.3rem;
+    /* 👉 설명 글자 크게 */
+    line-height: 1.8;
+    margin: 0.5rem 0; }
+
+/* ✅ 더 알아보기 버튼 */
+.scroll-btn {
+    margin-top: 2rem;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background-color: var(--hover-color);
+    color: #222;
+}
+
+section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ✅어바웃미 영역 */
+#about {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ✅ 전체 가운데 정렬 */
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.about-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.1rem;
+    /* ✅ 글씨 키움 */
+    line-height: 1.8;
+    /* ✅ 위아래 여백 늘림 */
+}
+
+.about-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    color: #333;
+}
+
+.about-row span {
+    flex: 1;
+}
+
+
+.about-photo {
+    width: 160px;
+    /* 가로 너비 고정 */
+    height: auto;
+    /* 세로는 이미지 비율 따라감 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-photo img {
+    width: 100%;
+    /* 부모 너비에 맞춤 */
+    height: auto;
+    /* 비율 유지 */
+    object-fit: cover;
+    /* 꽉 채우기 원할 시: cover, 비율 유지만 원할 시: contain */
+    border-radius: 12px;
+    display: block;
+}
+
+
+
+/* ✅ 프로젝트 카드 */
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.card-front.ikea {
+    background-image: url('image/ikea.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-front.movie {
+    background-image: url('/image/movie.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-front.tour {
+    background-image: url('/image/tour.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-front.popcon {
+    background-image: url('/image/pop-con.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.card-front.TelegramChatbot {
+    background-image: url('/image/Telegram.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.project {
+    width: 550px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.project:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-size: cover;
+    background-position: center;
+}
+
+.card-back {
+    background: #fff;
+    background-color: #f5f5f5;
+    transform: rotateY(180deg);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ✅ 기술 스택 전체 wrapper: 가로 2열 */
+.skill-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+/* ✅ 기술 스택 각 카테고리: 반 너비 */
+.skill-category {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    flex: 0 0 calc(50% - 0.75rem);
+    /* ✅ 2열 맞추기 */
+    box-sizing: border-box;
+}
+
+/* ✅ 기술 카테고리 제목 */
+.skill-category h3 {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ✅ 기술 목록: 가로 나열 */
+.skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+/* ✅ 기술 아이템 박스 */
+.skill-item {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ 모든 이미지 기본 크기 */
+.skill-item img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+/* ✅ SQL만 강제 확대 */
+.skill-item img[alt="SQL"] {
+    width: 70px;
+    height: 70px;
+    transform: scale(1.3);
+}
+
+/* ✅ 기술 이름 텍스트 */
+.skill-item span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ✅ 반응형 (모바일 세로 정렬) */
+@media (max-width: 768px) {
+    .skill-wrapper {
+        flex-direction: column;
+    }
+
+    .skill-category {
+        flex: 1 1 100%;
+    }
+}
+
+/* ✅ 자격증, 교육이수 영역 */
+/* ✅ 공통 카드 리스트 */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-bottom: 3rem;
+}
+
+/* ✅ 단일 카드 */
+.info-card {
+    flex: 1 1 250px;
+    background-color: #f5f5f5;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h4 {
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+.info-card p {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.info-card small {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #2c3e50;
+    color: #ccc;
+}
